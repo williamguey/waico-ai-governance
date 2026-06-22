@@ -1,21 +1,19 @@
 # WAICO and the Global AI Governance Regime Complex: Data and Code
 
-Replication materials for the paper:
+Replication data and code for the paper:
 
-> **World AI Cooperation Organization: Mapping an Emerging Institution in the Global AI Governance Regime Complex**
+> **World Artificial Intelligence Cooperation Organization (WAICO): Mapping an Emerging Institution in the Global AI Governance Regime Complex**
 > William Guey, Pierrick Bougault, Wei Zhang, Vitor D. de Moura, José O. Gomes.
 
-This repository contains the coded dataset, the analysis script, and the figures used in the paper. The paper places the proposed World AI Cooperation Organization (WAICO) within the emerging regime complex for AI by coding a representative set of fifteen international AI governance institutions on how they admit members, how they are organized, and what they prioritize.
+The manuscript itself is available as a preprint on arXiv. This repository holds only the data, analysis code, and figures needed to reproduce the results. The paper places the proposed World Artificial Intelligence Cooperation Organization (WAICO, 世界人工智能合作组织) within the emerging regime complex for AI by coding a representative set of fifteen international AI governance instruments and institutions on how they admit members, how they are organized, and what they prioritize.
 
 ## Contents
 
 | File | Description |
 |------|-------------|
-| `data/institutions.csv` | The coded dataset: 15 institutions, one row each, with the public source URL for every row. |
+| `data/institutions.csv` | The coded dataset: 15 instruments and institutions, one row each, with the public source URL for every row. |
 | `analysis.py` | Reproduces all reported quantities and both figures from the dataset. |
-| `figures/` | `fig1_map.{png,pdf}` (normative orientation vs membership breadth) and `fig2_definedness.{png,pdf}` (institutional definedness). |
-| `waico_paper.tex`, `references.bib` | LaTeX source and bibliography. |
-| `waico_paper.pdf` | Compiled manuscript. |
+| `figures/` | `fig1_map.{png,pdf}` (normative orientation vs membership breadth) and `fig2_definedness.{png,pdf}` (institutional formalization). |
 
 ## Reproducing the analysis
 
