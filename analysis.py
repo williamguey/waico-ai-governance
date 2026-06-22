@@ -90,19 +90,27 @@ bloc_marker = {
     "UN multilateral": ("s", "#7f8c8d"),
     "West / like-minded": ("D", "#2c3e50"),
 }
-fig, ax = plt.subplots(figsize=(8.2, 6.2))
-# size by development orientation
-sizes = 60 + df["development_orientation"] * 70
+fig, ax = plt.subplots(figsize=(8.4, 6.4))
 for b, (mk, col) in bloc_marker.items():
     sub = df[df["bloc"] == b]
-    ax.scatter(sub["norm_orientation"], sub["breadth"], s=60 + sub["development_orientation"] * 70,
+    ax.scatter(sub["norm_orientation"], sub["breadth"], s=55 + sub["development_orientation"] * 80,
                marker=mk, facecolor=col, edgecolor="black", linewidth=0.6, alpha=0.85, label=b, zorder=3)
 
-# annotate
+# per-institution label offsets (dx pt, dy pt, horizontal alignment) to limit overlap
+offsets = {
+    "waico": (6, 5, "left"), "china_init": (-7, -13, "right"),
+    "gpai": (6, 5, "left"), "oecd_ai": (6, -12, "left"),
+    "eu_aiact": (6, 5, "left"), "coe_fcai": (-7, -12, "right"),
+    "g7_hiroshima": (6, -12, "left"), "bletchley": (6, 5, "left"),
+    "seoul": (6, 5, "left"), "aisi_net": (6, -12, "left"),
+    "un_dialogue": (-7, 8, "right"), "unesco_rec": (6, 7, "left"),
+    "au_strategy": (6, 5, "left"), "asean_guide": (6, -12, "left"),
+    "brics_ai": (6, 5, "left"),
+}
 for _, r in df.iterrows():
-    dy = 0.022 if r["inst_id"] not in ("china_init",) else -0.05
+    dx, dy, ha = offsets.get(r["inst_id"], (6, 5, "left"))
     ax.annotate(r["lab"], (r["norm_orientation"], r["breadth"]),
-                xytext=(4, 6), textcoords="offset points", fontsize=8.2, zorder=4)
+                xytext=(dx, dy), textcoords="offset points", fontsize=8.2, ha=ha, zorder=4)
 
 # guide lines and the highlighted cell
 ax.axvline(0, color="grey", lw=0.7, ls="--", zorder=1)
@@ -110,13 +118,23 @@ ax.axhline(0.75, color="grey", lw=0.7, ls=":", zorder=1)
 ax.add_patch(plt.Rectangle((1.0, 0.75), 2.0, 0.32, facecolor="#f1c40f", alpha=0.18, zorder=0))
 ax.text(2.45, 0.965, "universal +\nsovereignty-development", fontsize=8.0, ha="center", va="center", color="#7f6000")
 
-ax.set_xlabel("Normative orientation\n(- rights & safety pole        +sovereignty & development pole)", fontsize=10)
-ax.set_ylabel("Membership breadth\n(0 = club        1 = universal)", fontsize=10)
-ax.set_title("Figure 1. The global AI governance regime complex and WAICO's niche\n(marker size = development orientation)", fontsize=11)
-ax.set_xlim(-2.6, 3.1)
-ax.set_ylim(0.18, 1.06)
-ax.legend(loc="lower left", fontsize=8.3, framealpha=0.9)
+ax.set_xlabel("Normative orientation     (left: rights and safety     right: sovereignty and development)", fontsize=9.5)
+ax.set_ylabel("Membership breadth     (0 = club     1 = universal)", fontsize=9.5)
+ax.set_title("Figure 1. The global AI governance landscape and WAICO's position", fontsize=11)
+ax.set_xlim(-2.6, 3.2)
+ax.set_ylim(0.15, 1.08)
+ax.set_xticks([-2, -1, 0, 1, 2, 3])
+ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
 ax.grid(True, alpha=0.18)
+
+# two legends: lead bloc (colors/markers) and development orientation (marker size)
+leg1 = ax.legend(loc="lower left", fontsize=8.2, framealpha=0.9, title="Lead bloc", title_fontsize=8.4)
+ax.add_artist(leg1)
+size_handles = [ax.scatter([], [], s=55 + dv * 80, marker="o", facecolor="0.75",
+                           edgecolor="black", linewidth=0.5) for dv in (0, 1, 2)]
+ax.legend(size_handles, ["low (0)", "medium (1)", "high (2)"], loc="lower right",
+          fontsize=7.8, title="Development\norientation", title_fontsize=8.0,
+          framealpha=0.9, labelspacing=1.0, borderpad=0.7)
 fig.tight_layout()
 fig.savefig(os.path.join(HERE, "figures", "fig1_map.png"), dpi=200)
 fig.savefig(os.path.join(HERE, "figures", "fig1_map.pdf"))
@@ -129,8 +147,8 @@ fig2, ax2 = plt.subplots(figsize=(8.0, 5.0))
 ds = df.sort_values("definedness")
 colors = ["#c0392b" if s == "proposed" else "#2c3e50" for s in ds["status"]]
 ax2.barh(ds["lab"], ds["definedness"], color=colors, edgecolor="black", linewidth=0.5)
-ax2.set_xlabel("Institutional definedness score (0-5: charter, secretariat, budget, voting, defined membership)")
-ax2.set_title("Figure 2. Institutional definedness across the regime complex\n(red = proposed / not yet constituted)")
+ax2.set_xlabel("Formalization score (0-5: charter, secretariat, budget, voting rules, defined membership)")
+ax2.set_title("Figure 2. Institutional formalization across the regime complex\n(red = proposed; for binding legal instruments the score reflects their implementing apparatus)")
 ax2.set_xlim(0, 5.2)
 for i, (v, s) in enumerate(zip(ds["definedness"], ds["status"])):
     ax2.text(v + 0.08, i, f"{v:.0f}", va="center", fontsize=8)
