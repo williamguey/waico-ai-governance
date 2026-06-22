@@ -1,0 +1,20 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+
+# internal working notes (not part of replication package)
+codebook.md
+build.log
+
+# temporary render images
+q*.png
+v*.png
+wp*.png
+pg*.png

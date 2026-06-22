@@ -1,0 +1,173 @@
+\documentclass[11pt]{article}
+
+% packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage[round]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=blue!45!black, urlcolor=blue!45!black}
+
+\setlength{\parskip}{0.35em}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\arraystretch}{1.2}
+\bibliographystyle{plainnat}
+
+% title
+\title{\textbf{World AI Cooperation Organization: Mapping an Emerging\\Institution in the Global AI Governance Regime Complex}}
+
+\author{
+William Guey$^{1}$, Pierrick Bougault$^{1}$, Wei Zhang$^{1}$, Vitor D. de Moura$^{2}$, and Jos\'e O. Gomes$^{3}$ \\[0.5em]
+\small $^{1}$Department of Industrial Engineering, Tsinghua University, Beijing, China \\
+\small $^{2}$School of Social Sciences, Tsinghua University, Beijing, China \\
+\small $^{3}$Department of Industrial Engineering, Federal University of Rio de Janeiro, Brazil
+}
+\date{Draft, June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent Who sets the rules for artificial intelligence, and on what terms, has become a defining question of global governance. For several years that contest ran through principles and ethics codes; it now runs through institutions. China's proposed World Artificial Intelligence Cooperation Organization (WAICO) is the most consequential recent entrant and the least examined. We place WAICO within the emerging regime complex for AI and argue that its importance lies not in any single commitment but in the position it is designed to hold. Coding a representative set of fifteen international governance bodies on how they admit members, how they are organized, and what they prioritize, we find that WAICO's defining feature is a combination found nowhere else in the field: membership open to any sovereign state, with no values or regime-type test for entry, joined to an agenda built around development and the closing of the global capability gap. The incumbent Western-led bodies gate membership by shared values and concentrate on rights and safety; the universal United Nations bodies are open but anchored in human rights; a development-first agenda is otherwise confined to the regional strategies of the Global South. WAICO is the first body to bring open access, value-neutral entry, and a development-first purpose together at global scale, even as it remains the least institutionally formed body we examine. We read this as the emergence of a second pole in global AI governance, organized around sovereignty and development rather than rights and safety, and we argue that WAICO is the first institution built to anchor it. We set out testable expectations against which the claim can be judged as the organization takes shape, and release the coded dataset for replication.
+
+\vspace{0.6em}
+\noindent\textbf{Keywords:} AI governance, regime complex, global governance of AI, WAICO, institutional design, Global South
+\end{abstract}
+
+% ============================================================
+\section{Introduction}
+% ============================================================
+For most of its short history, the global governance of artificial intelligence has been written in the language of principles. Governments and international bodies issued ethics codes, declarations, and recommendations, and observers asked whether the world was converging on a shared set of values \citep{jobin2019global}. That phase is ending. Governance is now being built into institutions: standing bodies, treaties, summit processes, and expert panels, each with its own members, rules, and purpose \citep{schmitt2021mapping, geith2025emerging}. The decisive questions have shifted accordingly, from which principles states endorse to which institutions they join, and why.
+
+It is into this institutional phase that China has proposed a new organization. Speaking at the opening of the World Artificial Intelligence Conference in Shanghai in July 2025, Premier Li Qiang announced, on behalf of the Chinese government, the creation of a World Artificial Intelligence Cooperation Organization, to be headquartered in Shanghai, together with a thirteen-point Global AI Governance Action Plan \citep{govcn2025waic, mfa2025actionplan}. The organization is new, its design is still taking shape, and serious treatment of it has so far been confined to policy commentary \citep{basu2026pivot, nature2025china, cnn2025waic}.
+
+This paper asks a more basic question than most commentary does. Rather than predict what WAICO will achieve, which no one can yet know, we ask where it sits. Every new institution enters a landscape that is already occupied, and its meaning comes as much from the gap it fills as from the words of its founders. Our claim is that WAICO is built to occupy a position that no existing global body holds, and that this position, more than any single line in its founding documents, explains why it is being created.
+
+Because WAICO is still forming, it cannot be assessed through its conduct. It can, however, be placed. Every institution can be described by how it admits members, how it is organized, and what it prioritizes, and these choices fix its location in the field before it has a record to judge. We code a representative set of fifteen AI governance institutions, WAICO among them, on exactly these dimensions, drawing each judgment from public documents, and use the result to locate WAICO relative to the bodies that already exist. Coding every institution on the same terms keeps the comparison honest and lets any reader check, or contest, the placement we propose.
+
+We make three contributions. First, we bring the mapping of AI governance institutions up to date, including the most recent entrants that earlier studies could not cover. Second, we add a reading of what these institutions stand for to what has mostly been a structural picture of how they relate. Third, we provide the first systematic placement of WAICO within the field. The picture that results is that the governance of AI is acquiring a second center of gravity, and that WAICO is the first institution designed to anchor it.
+
+% ============================================================
+\section{The global AI governance landscape: a short review}
+% ============================================================
+Three strands of scholarship inform this paper. The first treats AI governance documents as data. In the most influential example, \citet{jobin2019global} examined eighty-four ethics guidelines and found that an apparent agreement on a few principles concealed wide disagreement over what those principles meant and how they should be applied. The lesson we carry forward is that surface consensus can hide real division, and that careful, comparable reading across documents is how the division becomes visible.
+
+The second strand studies AI governance as a problem of institutions rather than texts. \citet{cihon2020fragmentation} asked whether international AI governance should be centralized in a single body or left fragmented across many, and concluded that fragmentation carries real costs but also real benefits, since competing forums can experiment and adapt. \citet{tallberg2023global} set out a research agenda for the field, distinguishing the empirical task of mapping and explaining global AI governance from the normative task of judging it. Building on that agenda, \citet{geith2025emerging} produced the first systematic analysis of what they call the AI regime complex, coding more than a hundred institutions and describing a field that is non-hierarchical, concentrated in Europe, and only weakly differentiated by function. Their work is the foundation we build on, and also the source of two gaps we try to fill: it maps how institutions relate rather than what they value, and its coverage closes before the newest and most consequential bodies appeared.
+
+To make sense of institutional design we draw on two long-standing ideas from the study of international organizations. \citet{koremenos2001rational} argued that the design features of an institution, such as who may join and how decisions are made, are not arbitrary but respond to the kind of cooperation problem the institution is meant to solve. \citet{raustiala2004regime} introduced the idea of a regime complex, a set of overlapping and non-hierarchical institutions governing the same broad issue, which is now the standard way of describing AI governance. WAICO enters precisely such a complex, and the question is which design choices it makes and what they imply.
+
+The third strand concerns China specifically. \citet{roberts2021chinese} analyzed the policy, ethics, and regulation behind China's AI ambitions, showing that Beijing has long sought to be a rule-maker rather than a rule-taker in this domain. WAICO is a natural extension of that ambition, and recent commentary reads it as part of a broader effort to shape global AI norms in ways that foreground state sovereignty and appeal to developing countries \citep{basu2026pivot, nature2025china}. What has been missing is a placement of WAICO against the rest of the field. That is the gap this paper addresses.
+
+% ============================================================
+\section{Argument and approach}
+% ============================================================
+The argument can be stated plainly. The field of AI governance institutions is organized, above all, by two questions: who is allowed in, and what the institution is for. On the first question, the established Western-led bodies are clubs. They admit members who share certain values, and they are built around managing the risks of advanced AI: safety, accountability, and the protection of rights. On the second question, they are oriented toward writing and enforcing rules among themselves. WAICO is presented as the mirror image on both counts. It is offered as open to any sovereign state, without a values test at the door, and it is organized not around risk and rules but around development: spreading access to AI, building capacity in countries that lack it, and closing what Chinese statements call the global intelligence gap \citep{govcn2025waic, mfa2025actionplan, mfa2023initiative}.
+
+What makes this more than a contrast of slogans is that no existing global institution already occupies WAICO's intended position. The bodies that are open to everyone, above all those of the United Nations, are anchored in human rights and the rule of law, not in sovereignty and development. The bodies that put development first are mostly regional, such as the African Union's continental strategy or the ASEAN guide, and so are not global in reach. WAICO is designed to combine three features that are currently found together nowhere else: open membership, value-neutral entry, and a development-first purpose, all at global scale. That combination is its niche.
+
+We proceed in two steps. We first read the institutions' founding language closely, to recover how they themselves define who belongs and what they are for. We then code a representative set of fifteen bodies to test whether those self-descriptions translate into a structured pattern across the field. The qualitative reading establishes the distinction; the coding shows it is general rather than anecdotal.
+
+For the coding, we assemble fifteen international AI governance institutions and score each, from public sources, on how it admits members, how it is organized, and what it emphasizes. The set spans the field's main poles rather than aiming to be exhaustive: Western and like-minded bodies, the universal multilateral bodies, the regional strategies of the Global South, and the China-led cluster that includes WAICO. Membership is coded by the gate an institution places on entry; design follows the rational-design tradition of \citet{koremenos2001rational}; and normative orientation is coded, in the presence-based manner of \citet{jobin2019global}, by which principle families each instrument emphasizes. The coding is transparent and released in full; in the text we report the pattern, and leave the detailed scoring to the dataset.
+
+% ============================================================
+\section{Two logics of membership}
+% ============================================================
+The clearest way to see what divides the field is to read how these bodies describe who belongs to them. The Global Partnership on Artificial Intelligence, launched in 2020 by a group of mostly advanced economies, defines itself around the responsible development of AI consistent with human rights and the shared democratic values of its members \citep{gpai2020founding}. Membership is, in effect, a declaration of political kinship: a state joins because it already holds a particular normative commitment. The same grammar runs through the bodies grouped near GPAI on our map. The OECD principles, the Council of Europe convention, and the G7 Hiroshima code each tie the governance of AI to human rights, democracy, and the rule of law \citep{oecd2019principles, coe2024convention, g72023hiroshima}. The club is defined by what its members share before AI enters the picture.
+
+WAICO is described in a different grammar. In the Global AI Governance Action Plan and the earlier Global AI Governance Initiative, the organizing words are openness, equality, respect for sovereignty, mutual benefit, and development; the stated aim is to widen access and close the global intelligence gap, and belonging is framed around being a sovereign state rather than around shared values \citep{mfa2025actionplan, mfa2023initiative, govcn2025waic}. Where the Western model treats common values as the price of admission, WAICO treats their absence as a design choice: a state need not subscribe to a political model to take part. This is the substance behind the claim that WAICO sets no values threshold at the door.
+
+These are two theories of what an international AI institution is for. One builds a community of the like-minded and writes rules among its members, accepting a smaller membership as the price of cohesion. The other builds the widest coalition it can around access and development, accepting normative thinness as the price of breadth. \citet{roberts2021chinese} document China's long ambition to be a rule-maker rather than a rule-taker in AI; WAICO pursues that ambition not by beating the Western clubs on their own terms but by changing the terms, trading the values gate for an open door. The wager is that, for many states, an organization that asks only that they be sovereign will be more attractive than one that asks them to be the right kind of state.
+
+If this reading is correct, it should show up not only in rhetoric but in the structure of the field: an institution's founding language and its measured position ought to line up. The next section shows that they do.
+
+% ============================================================
+\section{Where WAICO sits}
+% ============================================================
+Figure~\ref{fig:map} places the fifteen institutions on two axes. The horizontal axis captures normative orientation, running from a concern with rights and safety on the left to a concern with sovereignty and development on the right. The vertical axis captures membership breadth, from narrow clubs at the bottom to universal openness at the top. The picture that results is not subtle.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/fig1_map.pdf}
+\caption{The global AI governance landscape. The horizontal axis runs from a rights-and-safety orientation (left) to a sovereignty-and-development orientation (right); the vertical axis runs from club membership (bottom) to universal membership (top). Marker size reflects how strongly each body emphasizes development. The shaded area, combining universal membership with a development-first orientation, is occupied only by WAICO and China's own 2023 initiative.}
+\label{fig:map}
+\end{figure}
+
+The Western and like-minded bodies cluster on the left, at low to middling breadth. The Global Partnership on AI, the OECD principles, the EU AI Act, the Council of Europe convention, the G7 Hiroshima process, the Bletchley and Seoul summit declarations, and the network of AI safety institutes all sit there, grouped around rights and safety and, in most cases, around membership that is either values-based or limited to a region. The universal bodies of the United Nations and UNESCO sit at the top, open to all, but near the center of the horizontal axis rather than at its development end, because they are anchored in human rights. The Global South's own strategies and the BRICS grouping sit on the right, sharing WAICO's development orientation, but low down, because they are regional or club-based.
+
+The upper-right region of the map, where universal openness meets a development-first orientation, is nearly empty. Only two of the fifteen institutions fall there: WAICO and China's own 2023 Global AI Governance Initiative, the very statement of intent that WAICO is meant to turn into an organization. WAICO's closest relative in the entire field, in other words, is its own prototype. No broadly inclusive Western or United Nations body occupies the same ground. The map also shows why the membership rule carries so much weight: across the set, the bodies that screen members by shared values are the same ones that lean toward rights and safety, while the bodies open to all without a values test are the ones more willing to foreground sovereignty and development. WAICO's design joins the open door to the development agenda, and that pairing is what sets it apart.
+
+% ============================================================
+\section{What kind of institution it is}
+% ============================================================
+A distinctive position is not the same as a finished institution, and here WAICO stands out for the opposite reason. Figure~\ref{fig:def} scores each body on how much of its machinery is actually in place: whether it has a charter, a secretariat, a budget, decision rules, and a defined membership. WAICO sits at the bottom of the set. At present it has a name, a host city, and a statement of purpose, but the apparatus that would let it act has not yet been specified. The most fully built institutions in the field are, by contrast, the binding or club-based Western instruments, with the EU AI Act the most complete of all.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.84\textwidth]{figures/fig2_definedness.pdf}
+\caption{How fully formed each institution is, scored on whether it has a charter, a secretariat, a budget, decision rules, and a defined membership. WAICO, shown in a different shade as the only body still being proposed, sits at the bottom of the set.}
+\label{fig:def}
+\end{figure}
+
+This deserves to be stated as a finding, not a footnote. WAICO enters the field with the strongest claim to a distinctive position and the least developed means of acting on it. The distance between an ambitious purpose and an unspecified organization is exactly where the hard questions live, and it is where skeptical observers have pointed: who pays, who decides, and how the promise of openness is to be reconciled with effective rule-making all remain undefined \citep{basu2026pivot, nature2025china}. The thinness of WAICO's current design is therefore not a reason to dismiss it, but the main thing to watch as it develops.
+
+% ============================================================
+\section{The development divide WAICO names}
+% ============================================================
+WAICO's stated reason for existing is to help countries that have been left behind by the AI revolution. It is fair to ask whether the gap it names is real in the institutions that already exist, or merely a convenient justification. The evidence points to a real gap. Among the fifteen bodies, none of the eight Western and like-minded institutions makes closing the global divide a central, organizing goal; all seven of the remaining institutions do. The development agenda in today's field is carried almost entirely by the universal bodies, by the Global South's own regional strategies, and by China's initiatives, and is largely absent from the value-gated Western clubs that are otherwise the most institutionally developed.
+
+This matters for how we read WAICO. It does not show that WAICO will close the divide, which depends on who joins and on what resources follow. But it shows that the space WAICO is moving into is genuinely open. The most powerful and best-organized institutions in AI governance have, for the most part, not made the global distribution of AI capacity their business. WAICO proposes to make it the center of a global organization. Whether or not one welcomes that proposal, the opening it responds to is visible in the existing institutional record.
+
+% ============================================================
+\section{Reading WAICO: complement, competitor, or coordinator}
+% ============================================================
+What, then, is WAICO likely to be? Three readings are consistent with its design, and the evidence favors some more than others.
+
+As a \emph{competitor} to the Western clubs, WAICO is well placed. It stands on the opposite side of the field, and it removes the values test that keeps much of the world outside bodies like the Global Partnership on AI. For states that have felt like guests rather than members in the existing system, an organization that asks only that they be sovereign states is an attractive alternative.
+
+As a \emph{complement} to the United Nations, WAICO is plausible but not assured. The two share an open door, and Chinese statements are careful to present the United Nations as the main venue for global rules \citep{basu2026pivot}. Yet WAICO's emphasis on sovereignty and development is not the same as the United Nations' emphasis on rights, and the two could compete for the loyalty of developing countries as easily as they could reinforce one another.
+
+As a \emph{coordination layer} for the Global South, WAICO fits the evidence best. Its closest neighbors in the field are Chinese and Global South instruments, and its orientation is toward capacity-building and access rather than rule-enforcement. An organization that gathers developing countries, builds a common position, and then carries that position into broader forums is a coherent reading of what the design points toward. On this view WAICO is less a rival rule-book than a caucus with an address.
+
+Across all three readings, one conclusion holds. The field of AI governance is no longer organized around a single center. A second pole is forming, defined by open membership and a development-first agenda, and WAICO is the first institution built to anchor it. Whether that pole hardens into a lasting division or is eventually absorbed into United Nations-centered cooperation is the central open question, and one that the coming years, not this paper, will settle.
+
+% ============================================================
+\section{What to watch}
+% ============================================================
+Because the argument is about the position WAICO is built to hold, it can be tested as the organization takes concrete form. We set out three expectations that follow from the reading offered here, to be judged against the public record as it appears.
+
+\begin{enumerate}
+\item[\textbf{1.}] WAICO's membership will lean toward developing countries that are largely absent from the Western-led bodies, rather than toward the advanced economies that dominate those bodies.
+\item[\textbf{2.}] WAICO's founding arrangements will not impose a values-based or political condition on membership, consistent with the open-door positioning described here.
+\item[\textbf{3.}] There will be little overlap between WAICO's members and the membership of the Global Partnership on AI, reflecting the two bodies' opposite positions in the field.
+\end{enumerate}
+
+These expectations follow directly from where WAICO sits on our map. If they hold, they corroborate the reading that WAICO is built to anchor a second, development-oriented pole. If they do not, the reading should be revised. The released dataset is arranged so that WAICO's details can be added as they become public and these expectations evaluated without redoing the rest of the work.
+
+% ============================================================
+\section{Limitations}
+% ============================================================
+Three limitations should be kept in view. First, the coding applies structured judgment to public documents, and reasonable readers may score individual cases differently; the full dataset is released precisely so that codings can be inspected, contested, and refined, and formal inter-coder reliability testing is a natural next step. Second, WAICO is read from its stated intentions, and stated intentions can differ from what an organization eventually becomes; the expectations above are the means of testing that gap rather than assuming it away. Third, the set of fifteen institutions is chosen to represent the field's main poles, not to cover every body; extending the coding to the full population of AI governance institutions would test whether WAICO's near-empty position remains empty at larger scale. None of these qualifications touches the core, design-level claim, which rests on public sources and on the position WAICO has chosen for itself.
+
+% ============================================================
+\section{Conclusion}
+% ============================================================
+WAICO is most usefully read not as an outcome but as a move into an already crowded field. Placed against fifteen existing institutions, it is built for a position that no current global body holds: open to all, free of a values test, and centered on development rather than on rules and risk. That position, rather than any one phrase in its founding documents, is the clearest explanation of why it is being created and the best guide to what it might become. The governance of AI is gaining a second center of gravity, and WAICO is the first institution designed to sit at its core. As the organization takes shape, the dataset and the expectations offered here are meant to be revisited, so that a reading made at the moment of its proposal can be tested against what it turns out to be.
+
+% ============================================================
+\section*{Data and code availability}
+% ============================================================
+The coded dataset, the analysis script, and the figure source are openly available at \url{GITHUB_REPO_URL}. Each institution is coded from a public primary source, whose address is recorded with the data. The dataset is structured to accept WAICO's details, as they become public, for evaluation of the expectations set out above.
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+\bibliography{references}
+
+\end{document}
