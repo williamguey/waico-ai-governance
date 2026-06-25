@@ -3,7 +3,7 @@
 Replication data and code for the paper:
 
 > **World Artificial Intelligence Cooperation Organization (WAICO): Mapping an Emerging Institution in the Global AI Governance Regime Complex**
-> William Guey, Pierrick Bougault, Wei Zhang, Vitor D. de Moura, José O. Gomes.
+> William Guey, Wei Zhang, Vitor D. de Moura, Pierrick Bougault, José O. Gomes.
 
 The manuscript itself is available as a preprint on arXiv. This repository holds only the data, analysis code, and figures needed to reproduce the results. The paper places the proposed World Artificial Intelligence Cooperation Organization (WAICO, 世界人工智能合作组织) within the emerging regime complex for AI by coding a representative set of fifteen international AI governance instruments and institutions on how they admit members, how they are organized, and what they prioritize.
 
