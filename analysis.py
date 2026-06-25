@@ -96,6 +96,15 @@ for b, (mk, col) in bloc_marker.items():
     ax.scatter(sub["norm_orientation"], sub["breadth"], s=55 + sub["development_orientation"] * 80,
                marker=mk, facecolor=col, edgecolor="black", linewidth=0.6, alpha=0.85, label=b, zorder=3)
 
+# coder-range whiskers (orientation min-max across author + 3 full-text LLM coders)
+# for the two focal China-bloc universal bodies, to show coder sensitivity honestly
+coder_range = {"waico": (0.5, 2.0), "china_init": (0.5, 1.5)}
+for iid, (lo, hi) in coder_range.items():
+    row = df[df["inst_id"] == iid].iloc[0]
+    xc, y = row["norm_orientation"], row["breadth"]
+    ax.errorbar(xc, y, xerr=[[xc - lo], [hi - xc]], fmt="none", ecolor="#c0392b",
+                elinewidth=1.1, capsize=3, alpha=0.55, zorder=2)
+
 # per-institution label offsets (dx pt, dy pt, horizontal alignment) to limit overlap
 offsets = {
     "waico": (6, 5, "left"), "china_init": (-7, -13, "right"),

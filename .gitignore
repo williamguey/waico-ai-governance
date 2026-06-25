@@ -26,3 +26,7 @@ q*.png
 v*.png
 wp*.png
 pg*.png
+
+# downloaded/transcribed source texts (third-party; not re-hosted)
+corpus/
+eu.pdf

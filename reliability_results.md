@@ -1,38 +1,46 @@
-# Inter-coder reliability
+# Inter-coder reliability (full-document coding)
 
 Three flagship large language models from different developers, independent of the
-original (author) coding, each re-coded the 15 instruments on the 7 principle families
-from identical standardized factual briefs (the briefs are in `reliability.py`).
+author coding, each re-coded the 15 instruments on the 7 principle families **directly
+from the source documents** (not from briefs). The source texts were assembled by
+`corpus_build.py` (downloads from each instrument's official URL; the EU AI Act and the
+OECD Principles, whose sites block automated download, use transcribed provisions, the
+EU AI Act recital 1 + risk-based scheme, and the OECD five principles).
 
 **Coders:** OpenAI GPT-5.5, Google Gemini 2.5 Pro, xAI Grok 4.3.
 
 **Reproduce:**
 ```
-OPENROUTER_KEY=... python reliability.py        # queries the three models -> reliability_raw.json
-python reliability_analyze.py                    # computes alpha + headline robustness
+python corpus_build.py                                 # build corpus/ from source URLs
+OPENROUTER_KEY=... python reliability_fulltext.py      # 3 models x 15 docs -> reliability_fulltext_raw.json
+python reliability_analyze.py reliability_fulltext_raw.json
 ```
 
-## Results (interval Krippendorff's alpha)
+## Reliability (interval Krippendorff's alpha)
 
 | | alpha |
 |---|---|
-| Across the 3 LLM coders (15 inst x 7 families = 105 ratings) | **0.92** |
-| Including the author coding as a 4th coder | 0.80 |
-| Exact 3-way agreement | 82% |
+| Across the 3 LLM coders (full text) | **0.89** |
+| Including the author coding as a 4th coder | 0.73 |
+| Exact 3-way agreement | 80% |
 
-Per-family alpha (3 LLM coders): safety 0.82, rights 0.88, sovereignty 1.00,
-development 0.90, openness 0.91, standards 0.84, sustainability 0.91.
+Per-family alpha (3 LLM coders): development 0.94, sustainability 0.91, standards 0.88,
+openness 0.84, sovereignty 0.79, safety 0.70, **rights 0.50** (rights is the hardest
+family to code consistently).
 
-## Headline robustness
+## What is robust, and what is not
 
-The orientation index = (sovereignty + development + openness) - (rights + safety) was
-computed from each coder's scores. The upper-right cell (membership breadth >= 0.75 AND
-orientation > 1.0) contained **exactly {WAICO, China 2023 initiative} for every coder**
-(all three models and the author). The central finding is robust to the coder.
+**Robust (relative ordering).** For every coder, WAICO and China's 2023 initiative are
+the two most sovereignty-and-development-oriented universal-membership bodies, clearly
+above the rights-anchored UN bodies (UN Dialogue, UNESCO). This relative finding holds
+across all four coders.
 
-The models placed WAICO at +1.5 (vs the author's +2.0), slightly more conservative, but
-still clearly at the sovereignty-and-development pole and inside the cell.
+**Not robust (absolute magnitude).** Reading the full texts, the independent coders
+place WAICO's orientation index at about **+0.8** (range +0.5 to +1.0), versus the
+author's **+2.0**. The author coding scored WAICO at the optimistic end; independent
+coders read more rights/safety content in the full Action Plan. The paper therefore
+frames the central result as a *relative ordering* and treats the author placement as an
+upper bound; Figure 1 shows the author markers with whiskers giving the four-coder range.
 
-Note: the independent coders worked from standardized briefs, not the full source texts,
-so the agreement reflects coding judgment given common material rather than full-text
-re-coding.
+Note: this is a robustness check with automated coders, not a substitute for independent
+human expert coding.

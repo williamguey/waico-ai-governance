@@ -1,9 +1,9 @@
 """Compute inter-coder reliability (Krippendorff's alpha, interval) across the three
 flagship LLM coders, and test whether the headline finding survives independent coding."""
-import json, csv, itertools
+import json, csv, itertools, sys
 
 PRIN = ["safety", "rights", "sovereignty", "development", "openness", "standards", "sustainability"]
-raw = json.load(open("reliability_raw.json"))
+raw = json.load(open(sys.argv[1] if len(sys.argv) > 1 else "reliability_raw.json"))
 coders = list(raw.keys())
 insts = list(next(iter(raw.values())).keys())
 

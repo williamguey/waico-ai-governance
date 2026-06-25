@@ -14,10 +14,12 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `data/institutions.csv` | The coded dataset: 15 instruments and institutions, one row each, with the public source URL for every row. |
 | `analysis.py` | Reproduces all reported quantities and both figures from the dataset. |
 | `figures/` | `fig1_map.{png,pdf}` (normative orientation vs membership breadth) and `fig2_definedness.{png,pdf}` (institutional formalization). |
-| `reliability.py` | Inter-coder reliability harness: three flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3) re-code the 15 instruments from standardized briefs via OpenRouter. Needs `OPENROUTER_KEY` in the environment. |
-| `reliability_analyze.py` | Computes Krippendorff's alpha across coders and tests headline robustness. |
-| `reliability_raw.json` | The three models' raw codings. |
-| `reliability_results.md` | Summary of the reliability results (alpha = 0.92; headline robust to coder). |
+| `corpus_build.py` | Assembles the source-document corpus from each instrument's official URL (the corpus itself is not re-hosted). |
+| `reliability_fulltext.py` | Inter-coder reliability harness: three flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3) re-code the 15 instruments from the full source documents via OpenRouter. Needs `OPENROUTER_KEY`. |
+| `reliability_fulltext_raw.json` | The three models' raw full-text codings. |
+| `reliability_analyze.py` | Computes Krippendorff's alpha across coders and tests headline robustness (`python reliability_analyze.py reliability_fulltext_raw.json`). |
+| `reliability_results.md` | Summary (full-text alpha = 0.89; relative ordering robust to coder, absolute magnitude is coder-sensitive). |
+| `reliability.py`, `reliability_raw.json` | Earlier briefs-based reliability run, kept for reference. |
 
 ## Reproducing the analysis
 
