@@ -14,6 +14,10 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `data/institutions.csv` | The coded dataset: 15 instruments and institutions, one row each, with the public source URL for every row. |
 | `analysis.py` | Reproduces all reported quantities and both figures from the dataset. |
 | `figures/` | `fig1_map.{png,pdf}` (normative orientation vs membership breadth) and `fig2_definedness.{png,pdf}` (institutional formalization). |
+| `reliability.py` | Inter-coder reliability harness: three flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3) re-code the 15 instruments from standardized briefs via OpenRouter. Needs `OPENROUTER_KEY` in the environment. |
+| `reliability_analyze.py` | Computes Krippendorff's alpha across coders and tests headline robustness. |
+| `reliability_raw.json` | The three models' raw codings. |
+| `reliability_results.md` | Summary of the reliability results (alpha = 0.92; headline robust to coder). |
 
 ## Reproducing the analysis
 

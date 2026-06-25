@@ -118,7 +118,7 @@ ax.axhline(0.75, color="grey", lw=0.7, ls=":", zorder=1)
 ax.add_patch(plt.Rectangle((1.0, 0.75), 2.0, 0.32, facecolor="#f1c40f", alpha=0.18, zorder=0))
 ax.text(2.45, 0.965, "universal +\nsovereignty-development", fontsize=8.0, ha="center", va="center", color="#7f6000")
 
-ax.set_xlabel("Normative orientation     (left: rights and safety     right: sovereignty and development)", fontsize=9.5)
+ax.set_xlabel("Normative orientation     (left: rights and safety     right: sovereignty, development, openness)", fontsize=9.2)
 ax.set_ylabel("Membership breadth     (0 = club     1 = universal)", fontsize=9.5)
 ax.set_title("Figure 1. The global AI governance landscape and WAICO's position", fontsize=11)
 ax.set_xlim(-2.6, 3.2)
