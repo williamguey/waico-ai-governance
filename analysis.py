@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 df = pd.read_csv(os.path.join(HERE, "data", "institutions.csv"))
@@ -154,8 +155,14 @@ ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
 ax.grid(True, alpha=0.18)
 
 # two legends: lead bloc (colors/markers) and development orientation (marker size)
-leg1 = ax.legend(loc="upper left", bbox_to_anchor=(0.005, 0.72), fontsize=8.2,
-                 framealpha=0.9, title="Lead bloc", title_fontsize=8.4)
+# fixed, uniform marker handles so the legend symbols do not inherit the variable
+# data-point sizes (which made them overlap)
+bloc_handles = [Line2D([0], [0], marker=mk, linestyle="none", markerfacecolor=col,
+                       markeredgecolor="black", markeredgewidth=0.6, markersize=8.5, label=b)
+                for b, (mk, col) in bloc_marker.items()]
+leg1 = ax.legend(handles=bloc_handles, loc="upper left", bbox_to_anchor=(0.005, 0.72),
+                 fontsize=8.2, framealpha=0.9, title="Lead bloc", title_fontsize=8.4,
+                 labelspacing=0.9, handletextpad=0.6, borderpad=0.7)
 ax.add_artist(leg1)
 size_handles = [ax.scatter([], [], s=55 + dv * 80, marker="o", facecolor="0.75",
                            edgecolor="black", linewidth=0.5) for dv in (0, 1, 2)]
