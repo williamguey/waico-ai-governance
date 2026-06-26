@@ -5,7 +5,6 @@ positions, the empty-cell finding, and a representation-gap summary, and renders
 two figures. All quantities derive transparently from the coded variables.
 """
 import os
-import json
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -15,14 +14,6 @@ from matplotlib.lines import Line2D
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 df = pd.read_csv(os.path.join(HERE, "data", "institutions.csv"))
-
-# per-institution coder range (orientation min-max across the 4 full-document coders),
-# used to draw honest coder-sensitivity whiskers on Figure 1
-_cons_path = os.path.join(HERE, "consensus_coding.json")
-coder_range = {}
-if os.path.exists(_cons_path):
-    _c = json.load(open(_cons_path))
-    coder_range = {k: (v["lo"], v["hi"]) for k, v in _c.items()}
 
 os.makedirs(os.path.join(HERE, "figures"), exist_ok=True)
 
@@ -110,18 +101,9 @@ for b, (mk, col) in bloc_marker.items():
     ax.scatter(sub["norm_orientation"], sub["breadth"], s=55 + sub["development_orientation"] * 80,
                marker=mk, facecolor=col, edgecolor="black", linewidth=0.6, alpha=0.85, label=b, zorder=3)
 
-# coder-range whiskers: orientation min-max across the 4 full-document coders,
-# drawn for every institution to show coder sensitivity honestly
-for _, row in df.iterrows():
-    rng = coder_range.get(row["inst_id"])
-    if not rng:
-        continue
-    lo, hi = rng
-    xc, y = row["norm_orientation"], row["breadth"]
-    if hi - lo < 1e-9:
-        continue
-    ax.errorbar(xc, y, xerr=[[xc - lo], [hi - xc]], fmt="none", ecolor="#7f8c8d",
-                elinewidth=0.9, capsize=2, alpha=0.45, zorder=2)
+# Per-coder orientation ranges are reported in the reliability section and in
+# consensus_coding.json; they are not drawn on the map because several bodies share the
+# same membership breadth, which would stack their horizontal ranges on one line.
 
 # per-institution label offsets (dx pt, dy pt, horizontal alignment) to limit overlap
 offsets = {
