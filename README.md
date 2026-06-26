@@ -18,7 +18,7 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `reliability_fulltext.py` | Inter-coder reliability harness: three flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3) re-code the 15 instruments from the full source documents via OpenRouter. Needs `OPENROUTER_KEY`. |
 | `reliability_fulltext_raw.json` | The three models' raw full-text codings. |
 | `reliability_analyze.py` | Computes Krippendorff's alpha across coders and tests headline robustness (`python reliability_analyze.py reliability_fulltext_raw.json`). |
-| `reliability_results.md` | Summary (full-text alpha = 0.89; relative ordering robust to coder, absolute magnitude is coder-sensitive). |
+| `reliability_results.md` | Summary (full-text alpha = 0.86; relative ordering robust to coder, absolute magnitude is coder-sensitive). |
 | `reliability.py`, `reliability_raw.json` | Earlier briefs-based reliability run, kept for reference. |
 
 ## Reproducing the analysis

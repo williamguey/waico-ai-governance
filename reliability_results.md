@@ -3,9 +3,9 @@
 Three flagship large language models from different developers, independent of the
 author coding, each re-coded the 15 instruments on the 7 principle families **directly
 from the source documents** (not from briefs). The source texts were assembled by
-`corpus_build.py` (downloads from each instrument's official URL; the EU AI Act and the
-OECD Principles, whose sites block automated download, use transcribed provisions, the
-EU AI Act recital 1 + risk-based scheme, and the OECD five principles).
+`corpus_build.py` (downloads from each instrument's official URL); the EU AI Act and the
+OECD Principles, whose sites block automated download, were extracted from their official
+PDFs (EUR-Lex OJ L 2024/1689 and OECD/LEGAL/0449).
 
 **Coders:** OpenAI GPT-5.5, Google Gemini 2.5 Pro, xAI Grok 4.3.
 
@@ -20,12 +20,12 @@ python reliability_analyze.py reliability_fulltext_raw.json
 
 | | alpha |
 |---|---|
-| Across the 3 LLM coders (full text) | **0.89** |
-| Including the author coding as a 4th coder | 0.73 |
-| Exact 3-way agreement | 80% |
+| Across the 3 LLM coders (full text) | **0.86** |
+| Including the author coding as a 4th coder | 0.70 |
+| Exact 3-way agreement | 75% |
 
-Per-family alpha (3 LLM coders): development 0.94, sustainability 0.91, standards 0.88,
-openness 0.84, sovereignty 0.79, safety 0.70, **rights 0.50** (rights is the hardest
+Per-family alpha (3 LLM coders): sustainability 0.91, development 0.86, openness 0.81,
+standards 0.80, sovereignty 0.79, safety 0.70, **rights 0.50** (rights is the hardest
 family to code consistently).
 
 ## What is robust, and what is not

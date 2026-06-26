@@ -34,7 +34,7 @@
    "development": 1.0,
    "openness": 0.5,
    "standards": 0.5,
-   "sustainability": 1.0
+   "sustainability": 0.5
   },
   "eu_aiact": {
    "safety": 1.0,
@@ -42,7 +42,7 @@
    "sovereignty": 0.0,
    "development": 0.5,
    "openness": 0.0,
-   "standards": 1.0,
+   "standards": 0.5,
    "sustainability": 0.5
   },
   "coe_fcai": {
@@ -167,17 +167,17 @@
   "oecd_ai": {
    "safety": 1.0,
    "rights": 1.0,
-   "sovereignty": 0.0,
+   "sovereignty": 0.5,
    "development": 1.0,
-   "openness": 0.5,
-   "standards": 0.5,
+   "openness": 1.0,
+   "standards": 1.0,
    "sustainability": 0.5
   },
   "eu_aiact": {
    "safety": 1.0,
    "rights": 1.0,
    "sovereignty": 0.0,
-   "development": 0.5,
+   "development": 0.0,
    "openness": 0.0,
    "standards": 1.0,
    "sustainability": 0.5
@@ -305,18 +305,18 @@
    "safety": 1.0,
    "rights": 1.0,
    "sovereignty": 0.0,
-   "development": 1.0,
+   "development": 0.5,
    "openness": 0.5,
-   "standards": 0.5,
-   "sustainability": 0.5
+   "standards": 1.0,
+   "sustainability": 1.0
   },
   "eu_aiact": {
    "safety": 1.0,
    "rights": 1.0,
-   "sovereignty": 0.5,
-   "development": 0.5,
+   "sovereignty": 0.0,
+   "development": 0.0,
    "openness": 0.0,
-   "standards": 1.0,
+   "standards": 0.5,
    "sustainability": 0.5
   },
   "coe_fcai": {
