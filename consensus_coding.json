@@ -1,0 +1,212 @@
+{
+ "waico": {
+  "means": {
+   "safety": 1.0,
+   "rights": 0.625,
+   "sovereignty": 0.5,
+   "development": 1.0,
+   "openness": 1.0,
+   "standards": 1.0,
+   "sustainability": 1.0
+  },
+  "orient": 0.875,
+  "lo": 0.5,
+  "hi": 1.0
+ },
+ "china_init": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 1.0,
+   "development": 1.0,
+   "openness": 0.625,
+   "standards": 0.5,
+   "sustainability": 0.5
+  },
+  "orient": 0.625,
+  "lo": 0.5,
+  "hi": 1.0
+ },
+ "gpai": {
+  "means": {
+   "safety": 0.25,
+   "rights": 1.0,
+   "sovereignty": 0.0,
+   "development": 0.5,
+   "openness": 0.0,
+   "standards": 0.0,
+   "sustainability": 0.0
+  },
+  "orient": -0.75,
+  "lo": -1.0,
+  "hi": -0.5
+ },
+ "oecd_ai": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 0.125,
+   "development": 0.875,
+   "openness": 0.75,
+   "standards": 0.875,
+   "sustainability": 0.75
+  },
+  "orient": -0.25,
+  "lo": -1.0,
+  "hi": 0.5
+ },
+ "eu_aiact": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 0.125,
+   "development": 0.25,
+   "openness": 0.0,
+   "standards": 0.75,
+   "sustainability": 0.5
+  },
+  "orient": -1.625,
+  "lo": -2.0,
+  "hi": -1.0
+ },
+ "coe_fcai": {
+  "means": {
+   "safety": 0.5,
+   "rights": 1.0,
+   "sovereignty": 0.25,
+   "development": 0.0,
+   "openness": 0.0,
+   "standards": 0.0,
+   "sustainability": 0.0
+  },
+  "orient": -1.25,
+  "lo": -1.5,
+  "hi": -1.0
+ },
+ "g7_hiroshima": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 0.5,
+   "development": 0.5,
+   "openness": 0.25,
+   "standards": 1.0,
+   "sustainability": 0.5
+  },
+  "orient": -0.75,
+  "lo": -1.0,
+  "hi": -0.5
+ },
+ "bletchley": {
+  "means": {
+   "safety": 1.0,
+   "rights": 0.875,
+   "sovereignty": 0.5,
+   "development": 0.625,
+   "openness": 0.125,
+   "standards": 0.25,
+   "sustainability": 0.375
+  },
+  "orient": -0.625,
+  "lo": -1.0,
+  "hi": 0.0
+ },
+ "seoul": {
+  "means": {
+   "safety": 1.0,
+   "rights": 0.875,
+   "sovereignty": 0.125,
+   "development": 1.0,
+   "openness": 0.125,
+   "standards": 0.625,
+   "sustainability": 0.5
+  },
+  "orient": -0.625,
+  "lo": -1.0,
+  "hi": 0.0
+ },
+ "aisi_net": {
+  "means": {
+   "safety": 1.0,
+   "rights": 0.5,
+   "sovereignty": 0.25,
+   "development": 0.5,
+   "openness": 0.375,
+   "standards": 0.875,
+   "sustainability": 0.0
+  },
+  "orient": -0.375,
+  "lo": -1.0,
+  "hi": 0.0
+ },
+ "un_dialogue": {
+  "means": {
+   "safety": 0.625,
+   "rights": 0.875,
+   "sovereignty": 0.0,
+   "development": 1.0,
+   "openness": 0.5,
+   "standards": 0.5,
+   "sustainability": 0.125
+  },
+  "orient": 0.0,
+  "lo": -0.5,
+  "hi": 0.5
+ },
+ "unesco_rec": {
+  "means": {
+   "safety": 0.75,
+   "rights": 1.0,
+   "sovereignty": 0.5,
+   "development": 0.625,
+   "openness": 0.25,
+   "standards": 0.125,
+   "sustainability": 1.0
+  },
+  "orient": -0.375,
+  "lo": -1.0,
+  "hi": 0.0
+ },
+ "au_strategy": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 0.625,
+   "development": 1.0,
+   "openness": 0.5,
+   "standards": 0.625,
+   "sustainability": 0.5
+  },
+  "orient": 0.125,
+  "lo": 0.0,
+  "hi": 0.5
+ },
+ "asean_guide": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 0.25,
+   "development": 0.5,
+   "openness": 0.0,
+   "standards": 0.5,
+   "sustainability": 0.5
+  },
+  "orient": -1.25,
+  "lo": -1.5,
+  "hi": -1.0
+ },
+ "brics_ai": {
+  "means": {
+   "safety": 1.0,
+   "rights": 1.0,
+   "sovereignty": 1.0,
+   "development": 1.0,
+   "openness": 1.0,
+   "standards": 0.875,
+   "sustainability": 1.0
+  },
+  "orient": 1.0,
+  "lo": 1.0,
+  "hi": 1.0
+ }
+}

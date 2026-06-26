@@ -15,10 +15,12 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `analysis.py` | Reproduces all reported quantities and both figures from the dataset. |
 | `figures/` | `fig1_map.{png,pdf}` (normative orientation vs membership breadth) and `fig2_definedness.{png,pdf}` (institutional formalization). |
 | `corpus_build.py` | Assembles the source-document corpus from each instrument's official URL (the corpus itself is not re-hosted). |
-| `reliability_fulltext.py` | Inter-coder reliability harness: three flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3) re-code the 15 instruments from the full source documents via OpenRouter. Needs `OPENROUTER_KEY`. |
-| `reliability_fulltext_raw.json` | The three models' raw full-text codings. |
-| `reliability_analyze.py` | Computes Krippendorff's alpha across coders and tests headline robustness (`python reliability_analyze.py reliability_fulltext_raw.json`). |
-| `reliability_results.md` | Summary (full-text alpha = 0.86; relative ordering robust to coder, absolute magnitude is coder-sensitive). |
+| `reliability_fulltext.py`, `add_claude.py` | Coding harness: four flagship LLMs (GPT-5.5, Gemini 2.5 Pro, Grok 4.3, Claude Opus 4.8) code the 15 instruments from the full source documents via OpenRouter. Needs `OPENROUTER_KEY`. |
+| `reliability_fulltext_raw.json` | The four models' raw full-text codings. |
+| `merge_consensus.py`, `consensus_coding.json` | Builds the four-coder consensus (mean), computes Krippendorff's alpha, and writes the per-institution orientation range. The consensus is the principle coding used in the dataset. |
+| `update_csv.py` | Writes the consensus principle scores into `data/institutions.csv`. |
+| `reliability_analyze.py` | Standalone Krippendorff's alpha across coders (`python reliability_analyze.py reliability_fulltext_raw.json`). |
+| `reliability_results.md` | Summary (four-coder full-text alpha = 0.84; relative ordering robust across coders). |
 | `reliability.py`, `reliability_raw.json` | Earlier briefs-based reliability run, kept for reference. |
 
 ## Reproducing the analysis
@@ -39,7 +41,7 @@ This prints the summary statistics and writes the figures to `figures/`.
 
 **Membership logic:** `entry_condition` (values-gated, capability-gated, regional, universal-open); `values_gate` (founding text conditions entry on shared values); `accession_normative_test` (accession requires meeting a normative criterion); `open_to_all` (describes itself as open to any state); `global_south_priority` (bridging the global divide is an organizing goal).
 
-**Design and orientation:** `function`, `orientation` (regulatory or distributive), `development_orientation` (0–2), `legal_force`, `definedness` (0–5: charter, secretariat, budget, voting rules, defined membership). Principle emphasis is coded on a 0/0.5/1 scale across seven families (`p_safety`, `p_rights`, `p_sovereignty`, `p_development`, `p_open`, `p_standards`, `p_sustainability`). Two summary indices are derived: `norm_orientation` (negative = rights and safety; positive = sovereignty and development) and `breadth` (0 = club, 1 = universal).
+**Design and orientation:** `function`, `orientation` (regulatory or distributive), `development_orientation` (0–2), `legal_force`, `definedness` (0–5: charter, secretariat, budget, voting rules, defined membership). Principle emphasis is coded on a 0/0.5/1 scale across seven families (`p_safety`, `p_rights`, `p_sovereignty`, `p_development`, `p_open`, `p_standards`, `p_sustainability`); each value is the mean of four flagship LLMs coding the full source document (see the reliability files). Two summary indices are derived: `norm_orientation` (negative = rights and safety; positive = sovereignty and development) and `breadth` (0 = club, 1 = universal).
 
 **Provenance:** `source_url` records the public primary source from which each institution was coded.
 

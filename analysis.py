@@ -5,6 +5,7 @@ positions, the empty-cell finding, and a representation-gap summary, and renders
 two figures. All quantities derive transparently from the coded variables.
 """
 import os
+import json
 import pandas as pd
 import numpy as np
 import matplotlib
@@ -13,6 +14,14 @@ import matplotlib.pyplot as plt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 df = pd.read_csv(os.path.join(HERE, "data", "institutions.csv"))
+
+# per-institution coder range (orientation min-max across the 4 full-document coders),
+# used to draw honest coder-sensitivity whiskers on Figure 1
+_cons_path = os.path.join(HERE, "consensus_coding.json")
+coder_range = {}
+if os.path.exists(_cons_path):
+    _c = json.load(open(_cons_path))
+    coder_range = {k: (v["lo"], v["hi"]) for k, v in _c.items()}
 
 os.makedirs(os.path.join(HERE, "figures"), exist_ok=True)
 
@@ -39,10 +48,14 @@ df["bloc"] = df["lead_actor"].map(bloc)
 #   x = norm_orientation  (negative = rights-safety pole, positive = sovereignty-development pole)
 #   y = breadth           (0 = club, 1 = universal)
 # =====================================================================
-# Quadrant of interest: universal (breadth >= 0.75) AND sovereignty-development (norm_orientation > 1)
-mask_cell = (df["breadth"] >= 0.75) & (df["norm_orientation"] > 1.0)
-print("== RESULT 1: universal + sovereignty-development cell ==")
-print(df.loc[mask_cell, ["lab", "norm_orientation", "breadth"]].to_string(index=False))
+# Region of interest: universal (breadth >= 0.75) AND on the sovereignty-development
+# side of the axis (norm_orientation > 0, the natural midpoint between the poles)
+mask_cell = (df["breadth"] >= 0.75) & (df["norm_orientation"] > 0.0)
+print("== RESULT 1: universal + development-leaning region (orientation > 0) ==")
+print(df.loc[mask_cell, ["lab", "norm_orientation", "breadth"]].sort_values("norm_orientation", ascending=False).to_string(index=False))
+print()
+print("== universal-membership bodies ranked by orientation ==")
+print(df[df["breadth"] >= 0.75].sort_values("norm_orientation", ascending=False)[["lab", "norm_orientation", "breadth"]].to_string(index=False))
 print()
 
 # WAICO nearest neighbour in the 2D space
@@ -96,23 +109,27 @@ for b, (mk, col) in bloc_marker.items():
     ax.scatter(sub["norm_orientation"], sub["breadth"], s=55 + sub["development_orientation"] * 80,
                marker=mk, facecolor=col, edgecolor="black", linewidth=0.6, alpha=0.85, label=b, zorder=3)
 
-# coder-range whiskers (orientation min-max across author + 3 full-text LLM coders)
-# for the two focal China-bloc universal bodies, to show coder sensitivity honestly
-coder_range = {"waico": (0.5, 2.0), "china_init": (0.5, 1.5)}
-for iid, (lo, hi) in coder_range.items():
-    row = df[df["inst_id"] == iid].iloc[0]
+# coder-range whiskers: orientation min-max across the 4 full-document coders,
+# drawn for every institution to show coder sensitivity honestly
+for _, row in df.iterrows():
+    rng = coder_range.get(row["inst_id"])
+    if not rng:
+        continue
+    lo, hi = rng
     xc, y = row["norm_orientation"], row["breadth"]
-    ax.errorbar(xc, y, xerr=[[xc - lo], [hi - xc]], fmt="none", ecolor="#c0392b",
-                elinewidth=1.1, capsize=3, alpha=0.55, zorder=2)
+    if hi - lo < 1e-9:
+        continue
+    ax.errorbar(xc, y, xerr=[[xc - lo], [hi - xc]], fmt="none", ecolor="#7f8c8d",
+                elinewidth=0.9, capsize=2, alpha=0.45, zorder=2)
 
 # per-institution label offsets (dx pt, dy pt, horizontal alignment) to limit overlap
 offsets = {
-    "waico": (6, 5, "left"), "china_init": (-7, -13, "right"),
-    "gpai": (6, 5, "left"), "oecd_ai": (6, -12, "left"),
-    "eu_aiact": (6, 5, "left"), "coe_fcai": (-7, -12, "right"),
+    "waico": (6, 5, "left"), "china_init": (0, -14, "center"),
+    "gpai": (6, 5, "left"), "oecd_ai": (7, 4, "left"),
+    "eu_aiact": (6, 5, "left"), "coe_fcai": (-7, 6, "right"),
     "g7_hiroshima": (6, -12, "left"), "bletchley": (6, 5, "left"),
-    "seoul": (6, 5, "left"), "aisi_net": (6, -12, "left"),
-    "un_dialogue": (8, 3, "left"), "unesco_rec": (-8, 3, "right"),
+    "seoul": (6, -13, "left"), "aisi_net": (6, -12, "left"),
+    "un_dialogue": (0, -14, "center"), "unesco_rec": (-8, 4, "right"),
     "au_strategy": (6, 5, "left"), "asean_guide": (6, -12, "left"),
     "brics_ai": (6, 5, "left"),
 }
@@ -121,18 +138,18 @@ for _, r in df.iterrows():
     ax.annotate(r["lab"], (r["norm_orientation"], r["breadth"]),
                 xytext=(dx, dy), textcoords="offset points", fontsize=8.2, ha=ha, zorder=4)
 
-# guide lines and the highlighted cell
+# guide lines and the highlighted region (universal + development-leaning)
 ax.axvline(0, color="grey", lw=0.7, ls="--", zorder=1)
 ax.axhline(0.75, color="grey", lw=0.7, ls=":", zorder=1)
-ax.add_patch(plt.Rectangle((1.0, 0.75), 2.0, 0.32, facecolor="#f1c40f", alpha=0.18, zorder=0))
-ax.text(2.45, 0.965, "universal +\nsovereignty-development", fontsize=8.0, ha="center", va="center", color="#7f6000")
+ax.add_patch(plt.Rectangle((0.25, 0.75), 0.95, 0.32, facecolor="#f1c40f", alpha=0.18, zorder=0))
+ax.text(0.725, 0.80, "universal +\ndevelopment-leaning", fontsize=8.0, ha="center", va="center", color="#7f6000")
 
 ax.set_xlabel("Normative orientation     (left: rights and safety     right: sovereignty, development, openness)", fontsize=9.2)
 ax.set_ylabel("Membership breadth     (0 = club     1 = universal)", fontsize=9.5)
 ax.set_title("Figure 1. The global AI governance landscape and WAICO's position", fontsize=11)
-ax.set_xlim(-2.6, 3.2)
+ax.set_xlim(-2.4, 1.7)
 ax.set_ylim(0.15, 1.08)
-ax.set_xticks([-2, -1, 0, 1, 2, 3])
+ax.set_xticks([-2, -1, 0, 1])
 ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
 ax.grid(True, alpha=0.18)
 

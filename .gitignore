@@ -13,13 +13,15 @@
 codebook.md
 build.log
 
-# manuscript source and build (published on arXiv, not tracked in this data/code repo)
+# manuscript source and build (published on arXiv / submitted to journal, not tracked in this data/code repo)
 waico_paper.tex
 waico_paper.pdf
 references.bib
 waico_arxiv.tar.gz
 arxiv_build/
 arxiv_test/
+aiv_submission/
+maketable.py
 
 # temporary render images
 q*.png
