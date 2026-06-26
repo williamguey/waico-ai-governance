@@ -154,7 +154,7 @@ ax.set_yticks([0.2, 0.4, 0.6, 0.8, 1.0])
 ax.grid(True, alpha=0.18)
 
 # two legends: lead bloc (colors/markers) and development orientation (marker size)
-leg1 = ax.legend(loc="upper left", bbox_to_anchor=(0.005, 0.86), fontsize=8.2,
+leg1 = ax.legend(loc="upper left", bbox_to_anchor=(0.005, 0.72), fontsize=8.2,
                  framealpha=0.9, title="Lead bloc", title_fontsize=8.4)
 ax.add_artist(leg1)
 size_handles = [ax.scatter([], [], s=55 + dv * 80, marker="o", facecolor="0.75",
