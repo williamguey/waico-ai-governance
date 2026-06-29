@@ -164,7 +164,7 @@ ds = df.sort_values("definedness")
 colors = ["#c0392b" if s == "proposed" else "#2c3e50" for s in ds["status"]]
 ax2.barh(ds["lab"], ds["definedness"], color=colors, edgecolor="black", linewidth=0.5)
 ax2.set_xlabel("Formalization score (0-5: charter, secretariat, budget, voting rules, defined membership)")
-ax2.set_title("Figure 2. Institutional formalization across the regime complex\n(red = proposed; for binding legal instruments the score reflects their implementing apparatus)")
+ax2.set_title("Figure 2. Institutional formalization across the regime complex")
 ax2.set_xlim(0, 5.2)
 for i, (v, s) in enumerate(zip(ds["definedness"], ds["status"])):
     ax2.text(v + 0.08, i, f"{v:.0f}", va="center", fontsize=8)
