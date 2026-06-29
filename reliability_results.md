@@ -27,8 +27,14 @@ python analysis.py                                     # figures + headline quan
 
 | | alpha |
 |---|---|
-| Across the 4 full-document coders (105 principle judgments) | **0.84** |
+| Across the 4 full-document coders (105 principle judgments, 7 families) | **0.84** |
+| Restricted to the 5 families in the orientation index (75 judgments) | **0.84** |
 | Exact 4-way agreement | 66% |
+
+The index-restricted alpha (0.84) matches the 7-family alpha, so the reliability does not
+depend on the two families omitted from the index. Every Table 1 orientation value
+reproduces exactly from Eq. (1) applied to the per-family four-coder means
+(`analysis.py` derives them from `data/institutions.csv`).
 
 Per-family alpha: sustainability 0.89, development 0.84, openness 0.77, safety 0.76,
 standards 0.74, sovereignty 0.73, **rights 0.53** (rights is the hardest family to code

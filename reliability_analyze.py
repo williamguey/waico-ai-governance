@@ -31,9 +31,12 @@ def kalpha_interval(units):
     return 1 - Do / De if De else float("nan")
 
 units_all = [[raw[c][i][p] for c in coders] for i in insts for p in PRIN]
+INDEX = ["safety", "rights", "sovereignty", "development", "openness"]  # families in the orientation index
+units_idx = [[raw[c][i][p] for c in coders] for i in insts for p in INDEX]
 print(f"=== Inter-coder reliability across {len(coders)} full-document LLM coders ===")
 print("Coders:", ", ".join(c.split("/")[-1] for c in coders))
 print(f"Overall alpha (15 inst x 7 principles = {len(units_all)} units): {kalpha_interval(units_all):.3f}")
+print(f"Index-family alpha (5 families x 15 = {len(units_idx)} units): {kalpha_interval(units_idx):.3f}")
 print("Per-principle alpha:")
 for p in PRIN:
     u = [[raw[c][i][p] for c in coders] for i in insts]
