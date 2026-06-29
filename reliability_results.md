@@ -50,5 +50,22 @@ above the rights-anchored UN bodies. BRICS scores higher (+1.00) but is a closed
 universal. The relative ordering, WAICO and China's 2023 initiative as the only universal
 bodies on the development-leaning side, is robust across all four coders.
 
+## Robustness of the orientation index (`orientation_sensitivity.py`)
+
+The reviewer concern that the ordering is driven by assigning "openness" to the
+sovereignty/development pole is tested directly:
+
+| Variant | universal-body order | WAICO+China top two? | rho vs paper index |
+|---|---|---|---|
+| V0 paper: (sov+dev+open) - (rights+safety) | WAICO, China, UN, UNESCO | yes | 1.00 |
+| V1 drop openness | China, WAICO, UN, UNESCO | yes | 0.92 |
+| V2 openness scored against the dev pole | China, UNESCO, UN, WAICO | no | 0.39 |
+
+The core ordering (the two China-led instruments rank above the UN bodies) survives
+dropping openness (V1). It only breaks under V2, i.e. treating open-source/open-data/
+sharing as a rights-and-safety transparency norm and penalising it, which we regard as the
+wrong reading. WAICO's narrow edge over China's 2023 initiative does depend on counting
+openness positively.
+
 Note: this is automated multi-model coding with human validation, not a substitute for
 independent human expert coding. The per-coder codings are in `reliability_fulltext_raw.json`.

@@ -20,6 +20,7 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `merge_consensus.py`, `consensus_coding.json` | Builds the four-coder consensus (mean), computes Krippendorff's alpha, and writes the per-institution orientation range. The consensus is the principle coding used in the dataset. |
 | `update_csv.py` | Writes the consensus principle scores into `data/institutions.csv`. |
 | `reliability_analyze.py` | Standalone Krippendorff's alpha across coders (`python reliability_analyze.py reliability_fulltext_raw.json`). |
+| `orientation_sensitivity.py` | Sensitivity of the orientation index to how `openness` is treated (drop it / score it against the development pole). |
 | `reliability_results.md` | Summary (four-coder full-text alpha = 0.84; relative ordering robust across coders). |
 | `reliability.py`, `reliability_raw.json` | Earlier briefs-based reliability run, kept for reference. |
 
