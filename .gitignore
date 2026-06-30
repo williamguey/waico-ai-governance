@@ -21,6 +21,7 @@ waico_arxiv.tar.gz
 arxiv_build/
 arxiv_test/
 aiv_submission/
+waico_aiv_submission.zip
 maketable.py
 
 # temporary render images
