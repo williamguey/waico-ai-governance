@@ -22,7 +22,6 @@ The manuscript itself is available as a preprint on arXiv. This repository holds
 | `reliability_analyze.py` | Standalone Krippendorff's alpha across coders (`python reliability_analyze.py reliability_fulltext_raw.json`). |
 | `orientation_sensitivity.py` | Sensitivity of the orientation index to how `openness` is treated (drop it / score it against the development pole). |
 | `reliability_results.md` | Summary (four-coder full-text alpha = 0.84; relative ordering robust across coders). |
-| `reliability.py`, `reliability_raw.json` | Earlier briefs-based reliability run, kept for reference. |
 
 ## Reproducing the analysis
 
