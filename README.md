@@ -33,6 +33,8 @@ python analysis.py
 
 This prints the summary statistics and writes the figures to `figures/`.
 
+The full coding pipeline (corpus assembly, four-model coding, consensus, reliability) and a guide to adapting the study to a new topic are in [`PIPELINE.md`](PIPELINE.md); per-variable coding definitions are in the coding manual.
+
 ## Dataset columns
 
 `institutions.csv` codes each institution on three groups of variables.
